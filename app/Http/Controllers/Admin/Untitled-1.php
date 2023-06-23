@@ -9,38 +9,13 @@ use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class AdminController extends Controller
 {
     public function dashboard(){
         return view('admin.dashboard');
-    }
-    public function login(Request $request){
-        if ($request->isMethod('post')){
-            $data = $request->all();
-
-            $rules = [
-                'email' => 'required|email|max:255',
-                'password' => 'required'
-            ];
-            $customMessages = [
-                // Add custom messages here.
-                'email.required' => 'Email Address is required!',
-                'email.email' => 'Valid Email Address is required',
-                'password.required' => 'Password is required!',
-            ];
-
-            $this->validate($request,$rules,$customMessages);
-
-            if(Auth::guard('admin')->attempt(['email'=>$data['email'],'password' => $data['password']])){
-                return redirect('admin/dashboard');
-            }else{
-                return redirect()->back()->with('error_message','Invalid Email or Password');
-            }
-
-        }
-        return view('admin.login');
     }
 
     public function updateAdminPassword(Request $request)
