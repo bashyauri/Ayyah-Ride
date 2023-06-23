@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Driver\Auth\RegisterController;
+use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +35,10 @@ Route::group(['middleware'=> ['admin']],function(){
     Route::post('check-admin-password',[AdminController::class,'checkAdminPassword'])->name('check-admin-password');
     //Update Admin Details
     Route::match(['GET','POST'],'update-admin-details',[AdminController::class,'updateAdminDetails']);
-    //Update Vendor Details
-    Route::match(['GET','POST'],'update-vendor-details/{slug}',[AdminController::class,'updateVendorDetails']);
+    //Update Driver Details
+
+    Route::get('/update-driver-details',[DriverController::class,'getDriverDetails']);
+    Route::post('/update-driver-details',[DriverController::class,'updateDriverDetails']);
     //Update Admin Password
     Route::match(['GET','POST'],'update-admin-password',[AdminController::class,'updateAdminPassword']);
     //Admin Dashboard

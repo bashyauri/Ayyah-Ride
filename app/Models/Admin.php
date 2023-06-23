@@ -11,5 +11,9 @@ class Admin extends Authenticable
     use HasFactory;
     protected $guard = 'admin';
     protected $guarded = ['id'];
+    public function driverDetails()
+    {
+        return $this->hasOne(DriverDetails::class, 'admin_id')->nullable();
+    }
 
 }

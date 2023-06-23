@@ -6,18 +6,18 @@
           <span class="menu-title">Dashboard</span>
         </a>
       </li>
-      @if (Auth::guard('admin')->user()->type == 'vendor')
+      @if (Auth::guard('admin')->user()->type == 'driver')
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="icon-layout menu-icon"></i>
-          <span class="menu-title">Vendor Details</span>
+          <span class="menu-title">Driver Details</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/personal')}}">Personal Details</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/business')}}">Business Details</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/bank')}}">Bank Details</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-driver-details')}}">Personal Details</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/business')}}">Business Details</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/bank')}}">Bank Details</a></li> --}}
           </ul>
         </div>
       </li>
