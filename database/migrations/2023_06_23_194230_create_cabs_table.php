@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('cabs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('brand');
             $table->string('model');
-            $table->string('plate_no');
-            $table->string('chasis_number');
+            $table->string('vin');
+            $table->string('registration_no');
+            $table->string('chassis_number');
+            $table->string('no_of_seats');
             $table->timestamps();
         });
     }

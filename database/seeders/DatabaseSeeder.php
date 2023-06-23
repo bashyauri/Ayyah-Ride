@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\DriverDetails;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,13 +15,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        \App\Models\DriverDetails::factory(100)->create();
+        // \App\Models\DriverDetails::factory(100)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // $this->call(AdminSeeder::class);
+        $this->call(AdminSeeder::class);
+        $this->call(CabSeeder::class);
+        $this->call(DriverDetailsSeeder::class);
 
     }
 }
