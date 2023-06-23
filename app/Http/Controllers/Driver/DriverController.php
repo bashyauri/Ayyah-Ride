@@ -10,4 +10,7 @@ class DriverController extends Controller
     public function getDriverDetails(){
         return view('driver.update_driver_details');
     }
+    public function addDriverDetails(Request $request){
+        dd($request->all());
+    }
 }

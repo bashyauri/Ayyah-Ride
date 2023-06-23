@@ -8,7 +8,7 @@
         <div class="col-md-12 grid-margin">
           <div class="row">
             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-              <h3 class="font-weight-bold">Update Vendor Details</h3>
+              <h3 class="font-weight-bold">Update Personal Details</h3>
             </div>
             <div class="col-12 col-xl-4">
              <div class="justify-content-end d-flex">
@@ -28,12 +28,12 @@
           </div>
         </div>
       </div>
-      @if($slug == 'personal')
+
     <div class="row">
         <div class="col-md-6 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Vendor Personal Information</h4>
+              <h4 class="card-title">Personal Information</h4>
               @if(Session::has('error_message'))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Error</strong> {{Session::get('error_message')}}
@@ -59,59 +59,30 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
+              @endif
 
         </div>
-        @endif
-            <form class="forms-sample" action = "{{url('admin/update-vendor-details/personal')}}" method = "POST" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group">
-                  <label >Vendor Username/Email</label>
-                  <input  class="form-control" value="{{Auth::guard('admin')->user()->email}}" y>
-                </div>
-                <div class="form-group">
-                    <label for="admin_name">Name</label>
-                    <input type="text" name="vendor_name" value="{{Auth::guard('admin')->user()->name}}" class="form-control" id="admin_name" placeholder="Vendor Name" required>
-                  </div>
-                <div class="form-group">
-                    <label for="vendor_address">Address</label>
-                    <input type="text" name="vendor_address" value="{{$vendorDetails->address}}" class="form-control" id="vendor_address" placeholder="Enter Address" required>
-                </div>
-                <div class="form-group">
-                <label for="vendor_city">City</label>
-                <input type="text" name="vendor_city" value="{{$vendorDetails->city}}" class="form-control" id="vendor_city" placeholder="Enter City" required>
-                </div>
-                <div class="form-group">
-                    <label for="vendor_state">State</label>
-                    <input type="text" name="vendor_state" value="{{$vendorDetails->state}}" class="form-control" id="vendor_state" placeholder="Enter State" required>
-                </div>
-                <div class="form-group">
-                    <label for="vendor_country">Country</label>
-                    <input type="text" name="vendor_country" value="{{$vendorDetails->country}}" class="form-control" id="vendor_country" placeholder="Enter Country" required>
-                </div>
-                <div class="form-group">
-                    <label for="vendor_pincode">PinCode</label>
-                    <input type="text" name="vendor_pincode" value="{{$vendorDetails->pincode}}" class="form-control" id="vendor_pincode" placeholder="Enter State" required>
-                </div>
-                <div class="form-group">
-                  <label for="vendor_mobile">Mobile</label>
-                  <input type="text" name="vendor_mobile" value="{{$vendorDetails->mobile}}" class="form-control"
-                   id="vendor_mobile" placeholder="Enter 11 digit number" maxlength="11" minlength="11" required>
-                </div>
-                <div class="form-group">
-                    <label for="admin_mobile">Mobile</label>
-                    <input type="text" name="admin_mobile" value="{{Auth::guard('admin')->user()->mobile}}" class="form-control"
-                     id="admin_mobile" placeholder="Enter 11 digit number" maxlength="11" minlength="11" required>
-                  </div>
-                <div class="form-group">
-                    <label for="admin_mobile">Photo</label>
-                    <input type="file" name="admin_image" class="form-control"
-                     id="admin_image">
-                     @if (!empty(Auth::guard('admin')->user()->image))
-                     <a  target="_blank" href="{{url('admin/images/photos/'.Auth::guard('admin')->user()->image)}}" >View Image</a>
-                     <input type="hidden" name="current_admin_image" value="{{Auth::guard('admin')->user()->image}}">
 
-                     @endif
+            <form class="forms-sample" action = "{{url('admin/add-driver-details')}}" method = "POST" enctype="multipart/form-data">
+                @csrf
+
+                <div class="form-group">
+                    <label for="admin_name">Driver License Number</label>
+                    <input type="text" name="driver_license_number" value="" class="form-control" id="driver_license_number" placeholder="Driver License Number" required>
                   </div>
+                <div class="form-group">
+                    <label for="vendor_address">Plate Number</label>
+                    <input type="text" name="plate_number" value="" class="form-control" id="plate_number" placeholder="Plate Number" required>
+                </div>
+                <div class="form-group">
+                <label for="vendor_city">No of Car Seats</label>
+                <input type="text" name="no_of_seats" value="" class="form-control" id="no_of_seats" placeholder="Car Seats" required>
+                </div>
+                <div class="form-group">
+                    <label for="vendor_state">Bvn</label>
+                    <input type="text" name="bvn_no" value="" class="form-control" id="bvn_no" placeholder="Enter Bvn number" required>
+                </div>
+
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>
               </form>

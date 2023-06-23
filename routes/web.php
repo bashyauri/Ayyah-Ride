@@ -38,7 +38,7 @@ Route::group(['middleware'=> ['admin']],function(){
     //Update Driver Details
 
     Route::get('/update-driver-details',[DriverController::class,'getDriverDetails']);
-    Route::post('/update-driver-details',[DriverController::class,'updateDriverDetails']);
+    Route::post('/add-driver-details',[DriverController::class,'addDriverDetails']);
     //Update Admin Password
     Route::match(['GET','POST'],'update-admin-password',[AdminController::class,'updateAdminPassword']);
     //Admin Dashboard
