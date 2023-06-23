@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class CabSchedule extends Model
 {
     use HasFactory;
+    public function cab()
+    {
+        return $this->belongsTo(Cab::class);
+    }
 }

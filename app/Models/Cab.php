@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Cab extends Model
 {
     use HasFactory;
+    protected $guarded= [];
+    public function availability()
+    {
+        return $this->hasMany(CabAvailability::class);
+    }
+
+    public function schedules()
+    {
+        return $this->hasMany(CabSchedule::class);
+    }
 }
