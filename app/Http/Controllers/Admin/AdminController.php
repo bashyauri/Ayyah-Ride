@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\Models\DriverDetails;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -159,6 +160,13 @@ class AdminController extends Controller
         }
         return view('admin.settings.update_vendor_details',['slug' => $slug,'vendorDetails'=>$vendorDetails]);
 
+    }
+    public function getAllDrivers(){
+        $drivers =  Admin::has('driverDetails')->where(['status'=>0])->get();
+
+
+
+        return view('admin.drivers',['drivers'=>$drivers]);
     }
     public function logout(){
         Auth::guard('admin')->logout();

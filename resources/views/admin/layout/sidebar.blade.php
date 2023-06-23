@@ -44,7 +44,7 @@
         </a>
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Driver</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url('admin/get-drivers')}}">Drivers</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Cabs and Scheduling</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Rate/Surge Prices</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Promo</a></li>
