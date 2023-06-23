@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('driver_license_no');
             $table->string('plate_no');
             $table->string('no_of_seats');
+            $table->string('bvn_no');
             $table->timestamps();
         });
     }
