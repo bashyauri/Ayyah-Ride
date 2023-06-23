@@ -26,7 +26,8 @@ Route::get('/dashboard', function () {
 Route::prefix('/admin')->group(function(){
 // Admin Login
 Route::match(['GET','POST'],'login',[AdminController::class,'login']);
-Route::get('register',[RegisterController::class,'index']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::post('/register',[RegisterController::class,'register']);
 // ADMIN DASHBOARD
 Route::group(['middleware'=> ['admin']],function(){
     //Check Admin Password

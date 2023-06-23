@@ -39,6 +39,14 @@
                 </button>
               </div>
               @endif
+              @if(Session::has('success_message'))
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success</strong> {{Session::get('success_message')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              @endif
 
               @if ($errors->any())
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -52,17 +60,18 @@
         </div>
         @endif
         <form  method="POST" action="{{url('admin/register')}}" class="pt-3">
+            @csrf
                 <div class="form-group">
-                  <input type="text" name="username" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Username">
+                  <input type="text" name="username" class="form-control form-control-lg"  placeholder="Username">
                 </div>
                 <div class="form-group">
-                  <input type="email" name="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email">
+                  <input type="email" name="email" class="form-control form-control-lg"  placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="mobile_no" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Mobile no">
+                    <input type="text" name="mobile_no" class="form-control form-control-lg"  placeholder="Mobile no">
                   </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" name="password" class="form-control form-control-lg"  placeholder="Password">
                 </div>
                 <div class="mb-4">
                   <div class="form-check">
@@ -73,10 +82,10 @@
                   </div>
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN UP</a>
+                  <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Already have an account? <a href="login.html" class="text-primary">Login</a>
+                  Already have an account? <a href="{{url('admin/login')}}" class="text-primary">Login</a>
                 </div>
               </form>
               {{-- <form class="pt-3" action = "{{url('admin/login')}}" method = "POST">

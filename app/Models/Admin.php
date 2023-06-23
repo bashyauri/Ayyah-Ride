@@ -10,5 +10,6 @@ class Admin extends Authenticable
 {
     use HasFactory;
     protected $guard = 'admin';
+    protected $guarded = ['id'];
 
 }
