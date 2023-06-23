@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('type')->default('driver');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('mobile_no');
+            $table->tinyInteger('status')->default(0);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

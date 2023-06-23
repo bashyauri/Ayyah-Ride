@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Driver\Auth\RegisterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ Route::get('/dashboard', function () {
 Route::prefix('/admin')->group(function(){
 // Admin Login
 Route::match(['GET','POST'],'login',[AdminController::class,'login']);
+Route::get('register',[RegisterController::class,'index']);
 // ADMIN DASHBOARD
 Route::group(['middleware'=> ['admin']],function(){
     //Check Admin Password
