@@ -61,7 +61,7 @@
                             <td>{{$driver->driverDetails->driver_license_no}}</td>
                             <td>{{$driver->driverDetails->plate_no}}</td>
                             <td>{{$driver->driverDetails->no_of_seats}}</td>
-                            <td><input type="checkbox" name="approve"></td>
+                            <td><input type="checkbox"  class="recommend-checkbox" data-driver-id="{{ $driver->driverDetails->admin_id }}" name="approve"></td>
 
                         </tr>
                         @empty

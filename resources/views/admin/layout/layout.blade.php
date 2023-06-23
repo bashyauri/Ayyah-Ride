@@ -61,6 +61,7 @@
   <!-- End custom js for this page-->
   <!-- Custom Admin Js-->
   <script src="{{ url('admin/js/custom.js')}}"></script>
+  <script src="{{ url('admin/js/ajax/approve-driver.js')}}"></script>
   <!-- End Custom Admin Js-->
 </body>
 
