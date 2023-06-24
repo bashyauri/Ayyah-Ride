@@ -2,18 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\CabAvailability;
-use App\Models\CabAvailabity;
+use App\Models\CabSchedule;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CabAvailabilitySeeder extends Seeder
+class CabScheduleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        CabAvailability::factory()->count(100)->create();
+        CabSchedule::factory()->count(100)->create();
     }
 }

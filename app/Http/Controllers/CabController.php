@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cab;
+use App\Models\CabAvailability;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CabController extends Controller
@@ -11,6 +13,6 @@ class CabController extends Controller
     {
         $cabs = Cab::all();
 
-        return view('cabs.index', compact('cabs'));
+        return view('welcome', compact('cabs'));
     }
 }

@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(CabSeeder::class);
         $this->call(DriverDetailsSeeder::class);
+        $this->call(CabAvailabilitySeeder::class);
+        $this->call(CabScheduleSeeder::class);
 
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CabController;
 use App\Http\Controllers\Driver\Auth\RegisterController;
 use App\Http\Controllers\Driver\DriverController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Cab;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +19,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return redirect('');
+// });
+Route::get('/',[CabController::class,'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
