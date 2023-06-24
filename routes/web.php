@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/',[CabController::class,'index']);
 Route::post('/search-cabs', [CabController::class,'searchCabs'])->name('search.cabs');
+Route::get('{id}/schedule-payment',[CabController::class,'schedulePayment']);
 
 
 Route::get('/dashboard', function () {

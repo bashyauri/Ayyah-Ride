@@ -21,8 +21,11 @@ class CabController extends Controller
 
         return  view('cabs', compact('cabs'));
     }
-    public function bookCab($id)
+    public function schedulePayment($id)
     {
-        return view('cab.payment');
+        $trip = CabSchedule::where('id', $id)->first();
+
+
+        return view('schedule-payment',['trip' => $trip]);
     }
 }
