@@ -17,8 +17,12 @@ class CabController extends Controller
     }
     public function searchCabs(Request $request) {
 
-        $cabs = CabSchedule::where(['city' => $request->from,'destination'=>$request->to])->get();
+        $cabs = CabSchedule::where(['city' => $request->from,'destination'=>$request->to,'date'=>$request->departure])->get();
 
         return  view('cabs', compact('cabs'));
+    }
+    public function bookCab($id)
+    {
+        return view('cab.payment');
     }
 }
