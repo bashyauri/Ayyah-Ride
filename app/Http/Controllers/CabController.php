@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cab;
 use App\Models\CabAvailability;
+use App\Models\CabSchedule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -11,8 +12,13 @@ class CabController extends Controller
 {
     public function index()
     {
-        $cabs = Cab::all();
 
-        return view('welcome', compact('cabs'));
+        return view('welcome');
+    }
+    public function searchCabs(Request $request) {
+
+        $cabs = CabSchedule::where(['city' => $request->from,'destination'=>$request->to])->get();
+
+        return  view('cabs', compact('cabs'));
     }
 }

@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 //     return redirect('');
 // });
 Route::get('/',[CabController::class,'index']);
+Route::post('/search-cabs', [CabController::class,'searchCabs'])->name('search.cabs');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
