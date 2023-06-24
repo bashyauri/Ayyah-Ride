@@ -22,6 +22,7 @@
                       <label for="from">Where from?</label>
                       <select class="form-control" name="from" id="from">
                         <option value="">---State---</option>
+                        <option value="Abuja">Abuja(FCT)</option>
                         <option value="Kebbi">Kebbi</option>
                         <option value="Sokoto">Sokoto</option>
                         <option value="Zamfara">Zamfara</option>
@@ -29,7 +30,7 @@
                         <option value="Kano">Kano</option>
                         <option value="Katsina">Katsina</option>
                         <option value="Jigawa">Jigawa</option>
-                        <option value="Abuja">Abuja</option>
+
                       </select>
                     </div>
                   </div>
@@ -38,13 +39,14 @@
                       <label for="to">Where to?</label>
                       <select class="form-control" name="to" id="to">
                         <option value="">--State---</option>
+                        <option value="Abuja">Abuja(FCT)</option>
                         <option value="Kebbi">Kebbi</option>
                         <option value="Sokoto">Sokoto</option>
                         <option value="Zamfara">Zamfara</option>
                         <option value="Kaduna">Kaduna</option>
                         <option value="Kano">Kano</option>
                         <option value="Katsina">Katsina</option>
-                        <option value="Abuja">Jigawa</option>
+                        <option value="Jigawa">Jigawa</option>
                       </select>
                     </div>
                   </div>
@@ -67,24 +69,8 @@
         <div id="result">
 
 
-        @if (!empty($cabs))
 
-        @foreach ($cabs as $cab)
-        <div class="card mb-4">
-            <img src="cab1.jpg" class="card-img-top" alt="Cab 1">
-            <div class="card-body">
-                <h5 class="card-title">Car Brand:{{$cab->cab->brand}}</h5>
-                <p class="card-text">Destination: {{$cab->destination}}</p>
-                <p class="card-text">Date: {{ \Carbon\Carbon::parse($cab->date)->format('M d, Y') }}</p>
-                <p class="card-text">Departure: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
-                <p class="card-text">Seats Available{{$cab->cab->no_of_seats}}</p>
-                <a href="#" class="btn btn-primary">Book Now</a>
-            </div>
-        </div>
 
-        @endforeach
-
-        @endif
 
     </div>
 

@@ -14,23 +14,26 @@
         <div id="result">
 
 
-        @if (!empty($cabs))
 
-        @foreach ($cabs as $cab)
-        <div class="card mb-4">
-            <img src="cab1.jpg" class="card-img-top" alt="Cab 1">
-            <div class="card-body">
-                <h5 class="card-title">Car Brand:{{$cab->cab->brand}}</h5>
-                <p class="card-text">Destination: {{$cab->destination}}</p>
-                <p class="card-text">Date: {{ \Carbon\Carbon::parse($cab->date)->format('M d, Y') }}</p>
-                <p class="card-text">Departure: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
-                <p class="card-text">Seats Available{{$cab->cab->no_of_seats}}</p>
-                <a href="{{url($cab->id.'/payment')}}" class="btn btn-primary">Book Now</a>
-            </div>
-        </div>
-
-        @endforeach
-
+            @if (!empty($cabs))
+            @forelse ($cabs as $cab)
+                <div class="card mb-4">
+                    <img src={{asset('admin/images/taxi.jpg')}} width="400" height="400" class="card-img-top"  alt="Cab 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Car Brand:{{$cab->cab->brand}}</h5>
+                        <p class="card-text">Destination: {{$cab->destination}}</p>
+                        <p class="card-text">Date: {{ \Carbon\Carbon::parse($cab->date)->format('M d, Y') }}</p>
+                        <p class="card-text">Departure: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
+                        <p class="card-text">Seats Available: {{$cab->cab->no_of_seats}}</p>
+                        <p class="card-text">Fee per seat: N{{$cab->amount}}</p>
+                        <a href="{{url($cab->id.'/payment')}}" class="btn btn-primary">Book Now</a>
+                    </div>
+                </div>
+            @empty
+                <p class="text-danger">Travel route not available.</p>
+            @endforelse
+        @else
+            <p class="text-danger">Travel route not available.</p>
         @endif
 
     </div>

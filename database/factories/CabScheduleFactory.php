@@ -28,6 +28,7 @@ class CabScheduleFactory extends Factory
             'date' => Carbon::now()->format('Y-m-d'),
             'city' => $departures,
             'destination' => $destination,
+            'amount' => fake()->numberBetween(3000,1000),
             'time' => $this->faker->time('H:i:s'),
         ];
     }
