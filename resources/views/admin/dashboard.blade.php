@@ -95,10 +95,10 @@
 
 
 
-        <div class="col-md-12 grid-margin stretch-card">
+        {{-- <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <p class="card-title">Advanced Table</p>
+              <p class="card-title">Advanced Tab</p>
               <div class="row">
                 <div class="col-12">
                   <div class="table-responsive">
@@ -122,7 +122,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
+</div>
     </div>
 </div>
     <!-- content-wrapper ends -->
