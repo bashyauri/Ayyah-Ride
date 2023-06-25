@@ -2,6 +2,7 @@
 
 namespace App\Services\Driver;
 
+use App\Models\Cab;
 use App\Models\DriverDetails;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,6 +22,14 @@ class DriverService
         );
     }
     public function storeCab(array $data){
-
+        return Cab::create([
+            'driver_details_id' =>Auth::guard('admin')->id(),
+            'brand' => $data['brand'],
+            'model' => $data['model'],
+            'vin' => $data['vin'],
+            'registration_no' => $data['registration_no'],
+            'chassis_number' => $data['chassis_number'],
+            'no_of_seats' => $data['no_of_seats']
+        ]);
     }
 }

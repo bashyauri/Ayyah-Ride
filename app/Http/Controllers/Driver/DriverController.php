@@ -30,7 +30,7 @@ class DriverController extends Controller
     }
     public function storeCab(StoreCabRequest $request)
     {
-        dd($request->all());
+
         try {
             $this->driverService->storeCab($request->validated());
             return redirect()->back()->with('success_message','Cab Added.');
