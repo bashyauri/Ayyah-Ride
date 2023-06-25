@@ -99,7 +99,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary mr-2">Schedule</button>
-            <button class="btn btn-light">Cancel</button>
+            <a href="{{ url('admin/get-available-cabs')}}" class="btn btn-light">Back</a>
         </form>
 
             </div>
