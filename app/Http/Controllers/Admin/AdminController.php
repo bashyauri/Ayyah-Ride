@@ -3,16 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ScheduleTripRequest;
 use App\Models\{Admin,CabAvailability,Cab};
 use App\Models\DriverDetails;
 use App\Models\Vendor;
+use App\Services\Admin\CabScheduleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class AdminController extends Controller
 {
+    public function __construct(protected CabScheduleService $cabScheduleService){
+
+    }
     public function dashboard(){
         return view('admin.dashboard');
     }
@@ -187,8 +193,17 @@ class AdminController extends Controller
 
         return view('admin.schedule-trip',['cab'=>$cab]);
     }
-    public function storeTrip(Request $request,$id){
-        dd($request->all());
+    public function storeTrip(ScheduleTripRequest $request,$cabId){
+
+        try {
+            $this->cabScheduleService->scheduleTrip($request->validated(),$cabId);
+            return redirect()->back()->with('success_message','Schedule added.');
+        } catch (\Exception $ex) {
+            Log::alert($ex->getMessage());
+            return redirect()->back()->withErrors(['msgError' => 'Something went wrong']);
+        }
+
+
 
     }
     public function logout(){

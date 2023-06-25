@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('cabs', function (Blueprint $table) {
             $table->id();
+
             $table->string('brand');
             $table->string('model');
             $table->string('vin');

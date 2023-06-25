@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CabSchedule extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
     public function cab()
     {
         return $this->belongsTo(Cab::class);

@@ -28,11 +28,11 @@
                  <input type="text" class="form-control" id="js-email" placeholder="Enter Email" name="email">
                  <label for="email">Email</label>
               </div>
-              <div class="form-floating mt-3 mb-3">
+              {{-- <div class="form-floating mt-3 mb-3">
                 <input type="text" class="form-control" id="js-narration"  name="meeting_point"
                placeholder="Pickup point">
                 <label for="pwd">Pick up Address</label>
-             </div>
+             </div> --}}
               <div class="form-floating mt-3 mb-3">
                  <input type="text" class="form-control" id="js-narration"  name="narration"
                   value="Travel Fees from {{$trip->city}} to {{$trip->destination}}" @readonly(true)>
@@ -51,7 +51,7 @@
                 var form = document.querySelector("#payment-form");
                 var paymentEngine = RmPaymentEngine.init({
                     key: 'QzAwMDAyNzEyNTl8MTEwNjE4NjF8OWZjOWYwNmMyZDk3MDRhYWM3YThiOThlNTNjZTE3ZjYxOTY5NDdmZWE1YzU3NDc0ZjE2ZDZjNTg1YWYxNWY3NWM4ZjMzNzZhNjNhZWZlOWQwNmJhNTFkMjIxYTRiMjYzZDkzNGQ3NTUxNDIxYWNlOGY4ZWEyODY3ZjlhNGUwYTY=',
-                    transactionId: Math.floor(Math.random()*1101233), // Replace with a reference you generated or remove the entire field for us to auto-generate a reference for you. Note that you will be able to check the status of this transaction using this transaction Id
+                    // transactionId: Math.floor(Math.random()*1101233), // Replace with a reference you generated or remove the entire field for us to auto-generate a reference for you. Note that you will be able to check the status of this transaction using this transaction Id
                     customerId: form.querySelector('input[name="email"]').value,
                     firstName: form.querySelector('input[name="firstName"]').value,
                     lastName: form.querySelector('input[name="lastName"]').value,

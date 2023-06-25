@@ -20,7 +20,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="from">Where from?</label>
-                      <select class="form-control" name="from" id="from">
+                      <select class="form-control" name="from" id="from" required>
                         <option value="">---State---</option>
                         <option value="Abuja">Abuja(FCT)</option>
                         <option value="Kebbi">Kebbi</option>
@@ -37,7 +37,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="to">Where to?</label>
-                      <select class="form-control" name="to" id="to">
+                      <select class="form-control" name="to" id="to" required>
                         <option value="">--State---</option>
                         <option value="Abuja">Abuja(FCT)</option>
                         <option value="Kebbi">Kebbi</option>

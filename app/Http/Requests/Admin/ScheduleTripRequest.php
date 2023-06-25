@@ -22,8 +22,8 @@ class ScheduleTripRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'to' => ['required'],
-            'from' => ['required'],
+            'city' => ['required'],
+            'destination' => ['required'],
             'amount' => ['required'],
             'time' =>['required'],
             'date' => ['required']
