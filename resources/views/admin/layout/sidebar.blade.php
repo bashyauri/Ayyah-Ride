@@ -15,7 +15,7 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-driver-details')}}">Personal Details</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-driver-details')}}">Cab Details</a></li>
             {{-- <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/business')}}">Business Details</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/bank')}}">Bank Details</a></li> --}}
           </ul>
@@ -35,7 +35,7 @@
           </ul>
         </div>
       </li>
-      @endif
+
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
           <i class="icon-columns menu-icon"></i>
@@ -45,7 +45,7 @@
         <div class="collapse" id="form-elements">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a class="nav-link" href="{{url('admin/get-drivers')}}">Drivers</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Cabs and Scheduling</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{url('admin/get-available-cabs')}}">Cabs and Scheduling</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Rate/Surge Prices</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Promo</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Feedback and Review</a></li>
@@ -54,6 +54,7 @@
           </ul>
         </div>
       </li>
+      @endif
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
           <i class="icon-bar-graph menu-icon"></i>

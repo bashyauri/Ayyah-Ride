@@ -21,9 +21,11 @@
                     <img src={{asset('admin/images/taxi.jpg')}} width="400" height="400" class="card-img-top"  alt="Cab 1">
                     <div class="card-body">
                         <h5 class="card-title">Car Brand:{{$cab->cab->brand}}</h5>
+                        <p class="card-text">Chassis: {{$cab->cab->chassis_number}}</p>
+                        <p class="card-text">Departure: {{$cab->city}}</p>
                         <p class="card-text">Destination: {{$cab->destination}}</p>
                         <p class="card-text">Date: {{ \Carbon\Carbon::parse($cab->date)->format('M d, Y') }}</p>
-                        <p class="card-text">Departure: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
+                        <p class="card-text">Departure time: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
                         <p class="card-text">Seats Available: {{$cab->cab->no_of_seats}}</p>
                         <p class="card-text">Fee per seat: N{{$cab->amount}}</p>
                         <a href="{{url($cab->id.'/schedule-payment')}}" class="btn btn-primary">Book Now</a>

@@ -26,7 +26,7 @@ class CabFactory extends Factory
             'vin' =>$this->faker->vin,
             'registration_no' =>  $this->faker->vehicleRegistration,
             'chassis_number' =>  str_replace(' ', '_', $this->faker->vehicleType),
-            'no_of_seats' =>fake()->randomElement(['4', '5', '6']),
+            'no_of_seats' =>fake()->randomElement(['7', '8', '10']),
             'created_at' => now(),
             'updated_at' => now(),
         ];

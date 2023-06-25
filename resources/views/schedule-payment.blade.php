@@ -29,6 +29,11 @@
                  <label for="email">Email</label>
               </div>
               <div class="form-floating mt-3 mb-3">
+                <input type="text" class="form-control" id="js-narration"  name="meeting_point"
+               placeholder="Pickup point">
+                <label for="pwd">Pick up Address</label>
+             </div>
+              <div class="form-floating mt-3 mb-3">
                  <input type="text" class="form-control" id="js-narration"  name="narration"
                   value="Travel Fees from {{$trip->city}} to {{$trip->destination}}" @readonly(true)>
                  <label for="pwd">Narration</label>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin;
+use App\Models\{Admin,CabAvailability};
 use App\Models\DriverDetails;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
@@ -175,6 +175,14 @@ class AdminController extends Controller
             return redirect()->back()->withErrors(['msgError' => 'Something went wrong']);
         }
 
+    }
+    public function getAllAvailableCabs(){
+        $availableCabs = CabAvailability::where(['available'=> 0])->get();
+       return view('admin.available-cabs',['availableCabs'=>$availableCabs]);
+
+    }
+    public function scheduleTrip(){
+        return view('admin.schedule-trip');
     }
     public function logout(){
         Auth::guard('admin')->logout();

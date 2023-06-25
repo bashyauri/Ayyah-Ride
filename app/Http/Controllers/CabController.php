@@ -28,4 +28,5 @@ class CabController extends Controller
 
         return view('schedule-payment',['trip' => $trip]);
     }
+
 }

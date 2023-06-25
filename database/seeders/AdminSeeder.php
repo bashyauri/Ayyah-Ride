@@ -16,8 +16,9 @@ class AdminSeeder extends Seeder
     {
         Admin::factory()->count(100)->create();
         // $adminRecords = [
-        //     ['id' => 2, 'name' => 'Bashar',
+        //     [ 'name' => 'Bashar',
         //     'type' => 'admin',
+        //     'mobile_no' =>'08038272560',
         //     'email' => 'basharu@ymail.com','password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
         // 'status' => 1 ],
 

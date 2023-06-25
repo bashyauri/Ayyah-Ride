@@ -25,7 +25,7 @@ class CabScheduleFactory extends Factory
             'cab_id' => function () {
                 return  Cab::inRandomOrder()->first()->id;
             },
-            'date' => Carbon::now()->format('Y-m-d'),
+            'date' => Carbon::now()->addDays(rand(1, 30))->format('Y-m-d'),
             'city' => $departures,
             'destination' => $destination,
             'amount' => fake()->numberBetween(3000,1000),
