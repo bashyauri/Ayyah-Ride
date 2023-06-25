@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(AdminSeeder::class);
-        $this->call(CabSeeder::class);
         $this->call(DriverDetailsSeeder::class);
+        $this->call(CabSeeder::class);
         $this->call(CabAvailabilitySeeder::class);
         $this->call(CabScheduleSeeder::class);
 

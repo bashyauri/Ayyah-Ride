@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Admin;
+use App\Models\DriverDetails;
 use Faker\Provider\Fakecar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -21,6 +22,9 @@ class CabFactory extends Factory
         $this->faker->addProvider(new Fakecar($this->faker));
         $vehicle = $this->faker->vehicleArray();
         return [
+            'driver_details_id' =>  function () {
+                return  DriverDetails::inRandomOrder()->first()->id;
+            },
             'brand' => $vehicle['brand'],
             'model' => $vehicle['model'],
             'vin' =>$this->faker->vin,

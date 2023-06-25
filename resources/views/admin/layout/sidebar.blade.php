@@ -15,9 +15,9 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-driver-details')}}">Cab Details</a></li>
-            {{-- <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/business')}}">Business Details</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/bank')}}">Bank Details</a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-driver-details')}}">Personal Details</a></li>
+            {{-- {{-- <li class="nav-item"> <a class="nav-link" href="{{url('admin/update-vendor-details/business')}}">Business Details</a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href="{{url('admin/add-cab')}}">Add Cab</a></li>
           </ul>
         </div>
       </li>

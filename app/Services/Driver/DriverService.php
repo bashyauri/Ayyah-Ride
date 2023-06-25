@@ -20,4 +20,7 @@ class DriverService
         ]
         );
     }
+    public function storeCab(array $data){
+
+    }
 }
