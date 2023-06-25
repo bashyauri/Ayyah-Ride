@@ -10,7 +10,7 @@
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Schedule Trip </h4>
+              <h4 class="card-title">Schedule Trip for {{$cab->brand.' '.$cab->model.' '.$cab->chassis_number}} with Reg no: {{$cab->registration_no}} </h4>
               @if(Session::has('error_message'))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Error</strong> {{Session::get('error_message')}}
@@ -48,7 +48,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="city">Departure</label>
-                        <select class="form-control" name="from" id="from">
+                        <select class="form-control" name="city" id="from">
                             <option value="">--from---</option>
                             <option value="Abuja">Abuja(FCT)</option>
                             <option value="Kebbi">Kebbi</option>
@@ -64,7 +64,7 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="city">Destination</label>
-                        <select class="form-control" name="to" id="to">
+                        <select class="form-control" name="destination" id="to">
                             <option value="">--to---</option>
                             <option value="Abuja">Abuja(FCT)</option>
                             <option value="Kebbi">Kebbi</option>
@@ -81,24 +81,24 @@
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="amount">Fee</label>
-                        <input type="text" name="amount" value="" class="form-control" id="amount" placeholder="Amount" required>
+                        <input type="text" name="amount"  class="form-control" id="amount" placeholder="Amount" required>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="time">Time</label>
-                        <input type="time" name="time" value="" class="form-control" id="time" placeholder="Time" required>
+                        <input type="time" name="time"  class="form-control" id="time"  required>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="destination">Date</label>
-                        <input type="date" name="destination"  class="form-control" id="destination" placeholder="Destination" required>
+                        <input type="date" name="date"  class="form-control" id="date"  required>
                     </div>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mr-2">Update</button>
+            <button type="submit" class="btn btn-primary mr-2">Schedule</button>
             <button class="btn btn-light">Cancel</button>
         </form>
 
