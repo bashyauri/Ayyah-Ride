@@ -13,4 +13,8 @@ class DriverDetails extends Model
     {
         return $this->belongsTo(Admin::class);
     }
+    public function cabs()
+    {
+        return $this->hasMany(Cab::class);
+    }
 }

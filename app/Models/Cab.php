@@ -18,4 +18,8 @@ class Cab extends Model
     {
         return $this->hasMany(CabSchedule::class);
     }
+    public function driver()
+    {
+        return $this->belongsTo(Driver::class);
+    }
 }

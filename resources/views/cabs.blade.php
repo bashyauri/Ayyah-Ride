@@ -27,7 +27,7 @@
                         <p class="card-text">Date: {{ \Carbon\Carbon::parse($cab->date)->format('M d, Y') }}</p>
                         <p class="card-text">Departure time: {{ \Carbon\Carbon::parse($cab->time)->format('g:i A') }}</p>
                         <p class="card-text">Seats Available: {{$cab->cab->no_of_seats}}</p>
-                        <p class="card-text">Fee per seat: N{{$cab->amount}}</p>
+                        <p class="card-text">Fare: N{{$cab->amount}}</p>
                         <a href="{{url($cab->id.'/schedule-payment')}}" class="btn btn-primary">Book Now</a>
                     </div>
                 </div>
