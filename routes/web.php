@@ -48,6 +48,7 @@ Route::group(['middleware'=> ['admin']],function(){
     Route::get('/get-drivers',[AdminController::class,'getAllDrivers']);
     Route::get('/get-available-cabs',[AdminController::class,'getAllAvailableCabs']);
     Route::get('/cab/{id}/schedule-trip',[AdminController::class,'scheduleTrip']);
+    Route::post('/{id}/schedule-trip',[AdminController::class,'storeTrip']);
     Route::post('/approve-driver',[AdminController::class,'approveDriver']);
 
     //Update Admin Password
