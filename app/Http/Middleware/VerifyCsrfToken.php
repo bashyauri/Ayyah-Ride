@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'admin/approve-driver',
-        '/search-cabs'
+        '/search-cabs',
+        '/payment/response'
     ];
 }

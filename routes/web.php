@@ -27,6 +27,8 @@ Route::get('/',[CabController::class,'index']);
 Route::post('/search-cabs', [CabController::class,'searchCabs'])->name('search.cabs');
 Route::get('{id}/schedule-payment',[CabController::class,'schedulePayment']);
 Route::post('/payment', [PaymentController::class, 'makePayment'])->name('payment.make');
+Route::post('/payment/response', [PaymentController::class,'handleResponse'])->name('payment.response');
+
 
 
 Route::get('/dashboard', function () {

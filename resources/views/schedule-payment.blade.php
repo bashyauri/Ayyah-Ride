@@ -80,6 +80,7 @@
                  <input type="text" class="form-control" id="js-amount" placeholder="Enter Amount" name="amount" value="{{$trip->amount}}" readonly>
                  <label for="pwd">Amount(N)</label>
               </div>
+              <input type="hidden" name="cab_id" value="{{$trip->cab_id}}"/>
               <input type="submit"  value="Pay" button class="button"/>
            </form>
         </div>

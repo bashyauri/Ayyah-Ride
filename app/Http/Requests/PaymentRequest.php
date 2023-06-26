@@ -22,6 +22,7 @@ class PaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'cab_id' =>['required'],
             'firstName' => ['required', 'string'],
             'lastName' => ['required', 'string'],
             'email' => ['required', 'string'],

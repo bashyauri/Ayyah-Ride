@@ -67,6 +67,7 @@ class PaymentService
         if(!empty($values)){
             Payment::create([
                 'transaction_id' => $data['transactionId'],
+                'cab_id' => $data['cab_id'],
                 'first_name' => $data['firstName'],
                 'last_name' => $data['lastName'],
                 'phone' => $data['payerPhone'],
@@ -81,5 +82,39 @@ class PaymentService
 
         }
     }
+    public static function getTransactionStatus($RRR){
+        $apikey = "1946";
+        $merchantId="2547916";
+        $valuesToHash = $RRR."1946"."2547916" ;
 
+        $hash =hash('sha512', $valuesToHash);
+
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+      CURLOPT_URL => 'https://remitademo.net/remita/exapp/api/v1/send/api/echannelsvc/'.$merchantId.'/'.$RRR.'/'.$hash.'/status.reg',
+      CURLOPT_RETURNTRANSFER => true,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => true,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'GET',
+      CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        'Authorization: remitaConsumerKey='.$merchantId.',remitaConsumerToken='.$hash
+      ),
+    ));
+
+    $response = curl_exec($curl);
+
+    curl_close($curl);
+    return PaymentService::convertJsonToArray($response);
+
+      }
+      public static function updateTransactionStatus($status,$rrr){
+
+        Payment::where('RRR', $rrr)->update(['status'=>$status]);
+
+      }
 }

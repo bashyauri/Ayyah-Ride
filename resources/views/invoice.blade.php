@@ -39,9 +39,9 @@
                     @endif
 
         <div class='preserveHtml' class='preserveHtml' class="container mt-3">
-           <h2 class='preserveHtml' class='preserveHtml' class='preserveHtml'>Remita Regular Invoice Processing Demo</h2>
-           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'>Try out our Payment Gateway</p>
-           <form onsubmit="makePayment()" id="payment-form">
+           <h2 class='preserveHtml' class='preserveHtml' class='preserveHtml'>Invoice</h2>
+           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'></p>
+           <form onsubmit="makePayment()" a id="payment-form">
               <div class='preserveHtml' class='preserveHtml' class="form-floating mb-3 mt-3">
                  <input type="hidden" class="form-control" id="js-firstName" placeholder="Enter RRR" name="rrr" value="{{$RRR}}">
                  <label for="rrr">{{$RRR}}</label>
