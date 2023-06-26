@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CabController;
 use App\Http\Controllers\Driver\Auth\RegisterController;
 use App\Http\Controllers\Driver\DriverController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Cab;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[CabController::class,'index']);
 Route::post('/search-cabs', [CabController::class,'searchCabs'])->name('search.cabs');
 Route::get('{id}/schedule-payment',[CabController::class,'schedulePayment']);
+Route::post('/payment', [PaymentController::class, 'makePayment'])->name('payment.make');
 
 
 Route::get('/dashboard', function () {
@@ -52,6 +54,7 @@ Route::group(['middleware'=> ['admin']],function(){
     Route::post('/approve-driver',[AdminController::class,'approveDriver']);
     Route::get('/add-cab',[DriverController::class,'addCab']);
     Route::post('/store-cab',[DriverController::class,'storeCab']);
+
 
     //Update Admin Password
     Route::match(['GET','POST'],'update-admin-password',[AdminController::class,'updateAdminPassword']);

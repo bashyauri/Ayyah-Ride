@@ -13,9 +13,41 @@
      </head>
      <body>
         <div class="container mt-3">
+            <div class="col-md-12 grid-margin stretch-card">
+
+                    @if(Session::has('error_message'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>Error</strong> {{Session::get('error_message')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+                    @if(Session::has('success_message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Success</strong> {{Session::get('success_message')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    @endif
+
+
+                </div>
            <h2>Payment</h2>
-           <p>Payment for {{$trip->city}} to {{$trip->destination}}.</p>
-           <form onsubmit="makePayment()" id="payment-form">
+
+          <form action="{{ route('payment.make') }}" method="POST" enctype="multipart/form-data">
+            @csrf
               <div class="form-floating mb-3 mt-3">
                  <input type="text" class="form-control" id="js-firstName" placeholder="Enter First Name" name="firstName">
                  <label for="email">First Name</label>
@@ -28,13 +60,19 @@
                  <input type="text" class="form-control" id="js-email" placeholder="Enter Email" name="email">
                  <label for="email">Email</label>
               </div>
-              {{-- <div class="form-floating mt-3 mb-3">
+              <div class="form-floating mt-3 mb-3">
+                <input type="text" class="form-control" id="js-narration"  name="payerPhone"
+               placeholder="Pickup point">
+                <label for="pwd">Phone</label>
+             </div>
+              <div class="form-floating mt-3 mb-3">
                 <input type="text" class="form-control" id="js-narration"  name="meeting_point"
                placeholder="Pickup point">
                 <label for="pwd">Pick up Address</label>
-             </div> --}}
+             </div>
+
               <div class="form-floating mt-3 mb-3">
-                 <input type="text" class="form-control" id="js-narration"  name="narration"
+                 <input type="text" class="form-control" id="js-narration"  name="description"
                   value="Travel Fees from {{$trip->city}} to {{$trip->destination}}" @readonly(true)>
                  <label for="pwd">Narration</label>
               </div>
@@ -42,40 +80,10 @@
                  <input type="text" class="form-control" id="js-amount" placeholder="Enter Amount" name="amount" value="{{$trip->amount}}" readonly>
                  <label for="pwd">Amount(N)</label>
               </div>
-              <input type="button" onclick="makePayment()" value="Pay" button class="button"/>
+              <input type="submit"  value="Pay" button class="button"/>
            </form>
         </div>
-        <script type="text/javascript" src="https://remitademo.net/payment/v1/remita-pay-inline.bundle.js"></script>
-        <script>
-            function makePayment() {
-                var form = document.querySelector("#payment-form");
-                var paymentEngine = RmPaymentEngine.init({
-                    key: 'QzAwMDAyNzEyNTl8MTEwNjE4NjF8OWZjOWYwNmMyZDk3MDRhYWM3YThiOThlNTNjZTE3ZjYxOTY5NDdmZWE1YzU3NDc0ZjE2ZDZjNTg1YWYxNWY3NWM4ZjMzNzZhNjNhZWZlOWQwNmJhNTFkMjIxYTRiMjYzZDkzNGQ3NTUxNDIxYWNlOGY4ZWEyODY3ZjlhNGUwYTY=',
-                    // transactionId: Math.floor(Math.random()*1101233), // Replace with a reference you generated or remove the entire field for us to auto-generate a reference for you. Note that you will be able to check the status of this transaction using this transaction Id
-                    customerId: form.querySelector('input[name="email"]').value,
-                    firstName: form.querySelector('input[name="firstName"]').value,
-                    lastName: form.querySelector('input[name="lastName"]').value,
-                    email: form.querySelector('input[name="email"]').value,
-                    amount: form.querySelector('input[name="amount"]').value,
-                    narration: form.querySelector('input[name="narration"]').value,
-                    onSuccess: function (response) {
-                        console.log('callback Successful Response', response);
-                    },
-                    onError: function (response) {
-                        console.log('callback Error Response', response);
 
-                    },
-                    onClose: function () {
-                        console.log("closed");
-                    }
-                });
-                 paymentEngine.showPaymentWidget();
-            }
-
-            window.onload = function () {
-                setDemoData();
-            };
-        </script>
      </body>
   </html>
 
