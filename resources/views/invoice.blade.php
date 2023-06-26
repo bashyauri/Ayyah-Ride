@@ -8,6 +8,16 @@
         <style type="text/css">
            .button {background-color: #1CA78B;  border: none;  color: white;  padding: 15px 32px;  text-align: center;  text-decoration: none;  display: inline-block;  font-size: 16px;  margin: 4px 2px;  cursor: pointer;  border-radius: 4px;}
            input {  max-width: 30%;}
+
+    .center-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
         </style>
      </head>
      <body>
@@ -37,10 +47,11 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                     @endif
-
-        <div class='preserveHtml' class='preserveHtml' class="container mt-3 p-20">
+                    <div class="center-container">
+                        <div class="container mt-3">
+        <div class='preserveHtml' class='preserveHtml' class="container mt-3">
            <h2 class='preserveHtml' class='preserveHtml' class='preserveHtml'>Invoice Processing</h2>
-           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'>Try out our Payment Gateway</p>
+           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'>Note: Seat is only reserved after Payment</p>
            <form onsubmit="makePayment()" id="payment-form">
               <div class='preserveHtml' class='preserveHtml' class="form-floating mb-3 mt-3">
                  <input type="hidden" class="form-control" id="js-firstName" placeholder="Enter RRR" name="rrr" value="{{$RRR}}">
@@ -49,6 +60,8 @@
               <input type="button" onclick="makePayment()" value="Submit" button class="button"/>
            </form>
         </div>
+                        </div>
+                    </div>
         <script type="text/javascript" src="https://remitademo.net/payment/v1/remita-pay-inline.bundle.js"></script>
      </body>
 
