@@ -38,10 +38,10 @@
                     </button>
                     @endif
 
-        <div class='preserveHtml' class='preserveHtml' class="container mt-3">
-           <h2 class='preserveHtml' class='preserveHtml' class='preserveHtml'>Invoice</h2>
-           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'></p>
-           <form onsubmit="makePayment()" a id="payment-form">
+        <div class='preserveHtml' class='preserveHtml' class="container mt-3 p-20">
+           <h2 class='preserveHtml' class='preserveHtml' class='preserveHtml'>Invoice Processing</h2>
+           <p class='preserveHtml' class='preserveHtml' class='preserveHtml'>Try out our Payment Gateway</p>
+           <form onsubmit="makePayment()" id="payment-form">
               <div class='preserveHtml' class='preserveHtml' class="form-floating mb-3 mt-3">
                  <input type="hidden" class="form-control" id="js-firstName" placeholder="Enter RRR" name="rrr" value="{{$RRR}}">
                  <label for="rrr">{{$RRR}}</label>
@@ -93,19 +93,4 @@
             paymentEngine.showPaymentWidget();
           });
         }
-        function sendPaymentResponse(response) {
-    var form = document.createElement("form");
-    form.setAttribute("method", "POST");
-    form.setAttribute("action", "/payment/response"); // Update with your Laravel route URL
-
-    var hiddenField = document.createElement("input");
-    hiddenField.setAttribute("type", "hidden");
-    hiddenField.setAttribute("name", "response");
-    hiddenField.setAttribute("value", JSON.stringify(response));
-
-    form.appendChild(hiddenField);
-
-    document.body.appendChild(form);
-    form.submit();
-}
 </script>
